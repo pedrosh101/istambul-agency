@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/FuturaStd-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/FuturaStd-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #EEE5D6;
+  --turk: #C51A1A;
+  --ink: #1a1613;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+html { background: var(--bg); scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Futura", "Century Gothic", sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, button, a { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--turk); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; } }
