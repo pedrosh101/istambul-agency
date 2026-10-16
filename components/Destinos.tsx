@@ -56,7 +56,7 @@ export default function Destinos() {
         </span>
       </div>
       
-      <div className="grid gap-8 md:grid-cols-2 items-start mb-8 min-h-[120px]">
+      <div className="grid gap-8 md:grid-cols-2 items-start mb-0 min-h-[120px]">
         <AnimatePresence mode="wait">
           <motion.h2
             key={`title-${activeIndex}`}

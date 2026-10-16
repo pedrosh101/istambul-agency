@@ -32,7 +32,7 @@ export default function About() {
   };
 
   return (
-    <section id="sobre" className="mx-auto grid max-w-[80vw] items-center gap-20 px-6 py-24 md:grid-cols-2 md:px-10">
+    <section id="sobre" className="mx-auto grid max-w-[80vw] items-center gap-20 px-6 pt-24 pb-14 md:grid-cols-2 md:px-10">
       
       <motion.div
         initial="hidden"
