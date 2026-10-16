@@ -1,154 +1,93 @@
 "use client";
-
 import Image from "next/image";
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useLang } from "@/lib/i18n";
+import Reveal from "./Reveal";
 
-const DESTINOS_DATA = [
-  {
-    id: 1,
-    title: "Mesquita Azul",
-    desc: "A imponente Sultanahmet Camii domina o horizonte com seus seis minaretes icônicos e impressionantes azulejos internos.",
-    topTitle: "Sultanahmet, a joia histórica.",
-    topDesc: "A arquitetura clássica otomana se revela em cúpulas que tocam o céu. Um ponto onde a fé, a arte e a história milenar da cidade se encontram de forma monumental.",
-    img: "/images/mesquita-azul.jpg",
-  },
-  {
-    id: 2,
-    title: "Santa Sofia",
-    desc: "Antiga catedral, mesquita e museum, a Hagia Sophia carrega séculos de transformações e uma arquitetura impressionante.",
-    topTitle: "Hagia Sophia, herança de impérios.",
-    topDesc: "Seus mosaicos dourados e sua gigantesca cúpula flutuante contam a história da transição cultural entre Bizâncio e Constantinopla em cada detalhe de pedra.",
-    img: "/images/santa-sofia.jpg",
-  },
-  {
-    id: 3,
-    title: "Grand Bazaar",
-    desc: "Um dos maiores e mais antigos mercados abertos do mundo, transbordando cores, aromas, tapetes e especiarias.",
-    topTitle: "O pulsar vibrante do comércio.",
-    topDesc: "Caminhar por seus milhares de labirintos cobertos é uma viagem sensorial única. Especiarias raras, joias artesanais e a autêntica hospitalidade turca.",
-    img: "/images/grand-bazaar.jpg",
-  },
-];
+const IMGS = ["/images/mesquita-azul.jpg", "/images/santa-sofia.jpg", "/images/grand-bazaar.jpg"];
 
 export default function Destinos() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const rawScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const smoothScale = useSpring(rawScale, {
-    stiffness: 80,
-    damping: 25,
-    restDelta: 0.001
-  });
+  const { t } = useLang();
+  const [active, setActive] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.12]), { stiffness: 80, damping: 25, restDelta: 0.001 });
 
   return (
-    <section id="destinos" className="mx-auto max-w-[80vw] px-6 py-24 md:px-10 font-futura">
-      
-      <div className="mb-6">
-        <span className="text-xs uppercase tracking-[0.2em] text-neutral-400 font-medium">
-          Destinos
-        </span>
-      </div>
-      
-      <div className="grid gap-8 md:grid-cols-2 items-start mb-0 min-h-[120px]">
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={`title-${activeIndex}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.4 }}
-            className="text-4xl md:text-5xl tracking-tight text-neutral-900"
-          >
-            {DESTINOS_DATA[activeIndex].topTitle}
-          </motion.h2>
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={`desc-${activeIndex}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="text-neutral-500 text-lg leading-relaxed md:max-w-md md:ml-auto"
-          >
-            {DESTINOS_DATA[activeIndex].topDesc}
-          </motion.p>
-        </AnimatePresence>
-      </div>
-
-
-      <div 
-        ref={containerRef}
-        className="relative w-full h-[60vh] overflow-hidden rounded-2xl bg-transparent mb-8"
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`img-${activeIndex}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            style={{ scale: smoothScale }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              src={DESTINOS_DATA[activeIndex].img}
-              alt={DESTINOS_DATA[activeIndex].title}
-              fill
-              className="object-cover"
-              sizes="80vw"
-              priority
-            />
+    <section id="destinos" className="mx-auto w-[88vw] py-16 md:w-[80vw] md:py-24">
+      <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
+        <div ref={ref} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink/5 md:sticky md:top-24 md:aspect-[4/5]">
+          <motion.div style={{ scale }} className="absolute inset-0">
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={active}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image src={IMGS[active]} alt={t.d[active].title} fill className="object-cover" sizes="(min-width: 768px) 40vw, 88vw" />
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
-        </AnimatePresence>
-      </div>
+        </div>
 
-      {/* Grid inferior com colunas controladas por Hover */}
-      <div className="grid gap-12 pt-8 border-t border-neutral-200 md:grid-cols-3">
-        {DESTINOS_DATA.map((destino, index) => {
-          const isSelected = activeIndex === index;
-          return (
-            <div
-              key={destino.id}
-              onMouseEnter={() => setActiveIndex(index)}
-              className="cursor-pointer group flex flex-col justify-between"
-            >
-              <div>
-                <motion.h3 
-                  animate={{ color: isSelected ? "#171717" : "#737373" }}
-                  className="text-lg font-medium mb-3 transition-colors duration-300"
-                >
-                  {destino.title}
-                </motion.h3>
-                <motion.p 
-                  animate={{ color: isSelected ? "#525252" : "#a3a3a3" }}
-                  className="text-sm leading-relaxed transition-colors duration-300"
-                >
-                  {destino.desc}
-                </motion.p>
-              </div>
-              
-              <div className="mt-6 h-[2px] w-full bg-neutral-100 relative overflow-hidden">
-                <motion.div 
-                  initial={{ left: "-100%" }}
-                  animate={{ left: isSelected ? "0%" : "-100%" }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-turk w-full h-full"
-                />
-              </div>
-            </div>
-          );
-        })}
+        <div>
+          <Reveal>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl">{t.destTitle}</h2>
+            <p className="mt-4 text-base text-ink/60 sm:text-lg">{t.destSub}</p>
+          </Reveal>
+          <div className="mt-8 md:mt-12">
+            {t.d.map((item, i) => {
+              const on = active === i;
+              return (
+                <Reveal key={i} delay={i * 0.1}>
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    className="relative cursor-pointer border-t border-ink/15 py-6 md:py-8"
+                  >
+                    <motion.h3
+                      animate={{ color: on ? "#1a1613" : "rgba(26,22,19,0.45)" }}
+                      className="text-2xl font-medium md:text-3xl"
+                    >
+                      {item.title}
+                    </motion.h3>
+                    <motion.p animate={{ color: on ? "rgba(26,22,19,0.75)" : "rgba(26,22,19,0.4)" }} className="mt-2 text-sm leading-relaxed sm:text-base">
+                      {item.desc}
+                    </motion.p>
+                    <AnimatePresence initial={false}>
+                      {on && (
+                        <motion.p
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35 }}
+                          className="overflow-hidden text-sm leading-relaxed text-ink/60 sm:text-base"
+                        >
+                          <span className="block pt-3">{item.detail}</span>
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                    <motion.span
+                      initial={false}
+                      animate={{ scaleX: on ? 1 : 0 }}
+                      transition={{ duration: 0.35 }}
+                      style={{ originX: 0 }}
+                      className="absolute -top-px left-0 h-[2px] w-full bg-turk"
+                    />
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
       </div>
-
     </section>
   );
 }

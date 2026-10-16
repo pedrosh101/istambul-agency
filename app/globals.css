@@ -29,6 +29,7 @@ html{
 
 html { background: var(--bg); scroll-behavior: smooth; }
 body {
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: "Futura", "Century Gothic", sans-serif;

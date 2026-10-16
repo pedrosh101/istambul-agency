@@ -32,7 +32,7 @@ export default function About() {
   };
 
   return (
-    <section id="sobre" className="mx-auto grid max-w-[80vw] items-center gap-20 px-6 pt-24 pb-14 md:grid-cols-2 md:px-10">
+    <section id="sobre" className="mx-auto grid w-[88vw] items-center gap-10 pt-16 pb-6 md:w-[80vw] md:grid-cols-2 md:gap-20 md:pt-24 md:pb-14">
       
       <motion.div
         initial="hidden"
@@ -42,13 +42,13 @@ export default function About() {
           visible: { transition: { staggerChildren: 0.2 } }
         }}
       >
-        <motion.h2 variants={fadeInVariants} className="text-4xl md:text-5xl">
+        <motion.h2 variants={fadeInVariants} className="text-3xl sm:text-4xl md:text-5xl">
           {t.aboutTitle}
         </motion.h2>
-        <motion.p variants={fadeInVariants} className="mt-8 text-lg leading-relaxed">
+        <motion.p variants={fadeInVariants} className="mt-6 text-base sm:text-lg md:mt-8 leading-relaxed">
           {t.aboutP1}
         </motion.p>
-        <motion.p variants={fadeInVariants} className="mt-4 text-lg leading-relaxed">
+        <motion.p variants={fadeInVariants} className="mt-4 text-base sm:text-lg leading-relaxed">
           {t.aboutP2}
         </motion.p>
       </motion.div>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SmoothScroll from "@/components/smoothscroll";
-// @ts-expect-error Next.js handles CSS imports at build time.
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
 
