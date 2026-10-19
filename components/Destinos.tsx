@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "fra
 import { useLang } from "@/lib/i18n";
 import Reveal from "./Reveal";
 
-const IMGS = ["/images/mesquita-azul.jpg", "/images/santa-sofia.jpg", "/images/grand-bazaar.jpg"];
+const IMGS = ["/images/mesquita-azul.webp", "/images/santa-sofia.webp", "/images/grand-bazaar.webp"];
 
 export default function Destinos() {
   const { t } = useLang();
