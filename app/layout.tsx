@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SmoothScroll from "@/components/smoothscroll";
-// @ts-expect-error CSS side-effect imports are handled by Next.js.
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
 
