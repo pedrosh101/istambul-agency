@@ -10,7 +10,7 @@ export default function Guia() {
     <section id="guia" className="mx-auto w-[88vw] py-8 md:w-[80vw] md:py-12">
       <div className="grid items-center gap-10 overflow-hidden rounded-[1.5rem] bg-ink p-6 text-white sm:p-10 md:grid-cols-[1.3fr_1fr] md:gap-16 md:rounded-[2rem] md:p-16">
         <Reveal>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl">{t.guideTitle}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl md:!leading-[56px]">{t.guideTitle}</h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 sm:text-lg">{t.guideText}</p>
           <a
             href={GUIDE_MAILTO(t.guideCta)}

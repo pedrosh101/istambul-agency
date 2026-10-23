@@ -12,9 +12,16 @@ export default function Tour() {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <section id="tour" className="mx-auto w-[88vw] py-16 md:w-[80vw] md:py-24">
-      <div className="grid gap-6 md:grid-cols-2 md:gap-20">
-        <Reveal><h2 className="text-3xl sm:text-4xl md:text-5xl">{t.tourTitle}</h2></Reveal>
+    <section id="roteiros" className="mx-auto w-[88vw] py-16 md:w-[80vw] md:py-24">
+  <div className="grid gap-6 md:grid-cols-2 md:gap-20">
+        <Reveal>
+          <div className="flex flex-col gap-2">
+            <span className="text-sm font-medium uppercase tracking-[2.3px] text-muted-foreground/80 text-ink/70">
+              {t.tourTitleSub}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl">{t.tourTitle}</h2>
+          </div>
+        </Reveal>
         <Reveal delay={0.1}><p className="text-base leading-relaxed sm:text-lg">{t.tourText}</p></Reveal>
       </div>
 
