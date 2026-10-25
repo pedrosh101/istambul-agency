@@ -1,4 +1,4 @@
-export const NAV_HREFS = ["#roteiros", "#destinos", "#sobre", "#contato"];
+export const NAV_HREFS = ["#sobre", "#destinos", "#roteiros", "#contato"];
 export const CONTACT = {
   phone: "+90 541 659 91 86",
   phoneHref: "tel:+905416599186",
@@ -7,5 +7,4 @@ export const CONTACT = {
   instagramHandle: "@descubraistambul",
 };
 
-export const GUIDE_MAILTO = (subject: string) =>
-  `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}`;
+

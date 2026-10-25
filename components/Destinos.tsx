@@ -36,7 +36,8 @@ export default function Destinos() {
       id="destinos"
       className="mx-auto w-[88vw] py-16 md:w-[80vw] md:py-24"
     >
-      <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
+      <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16 [&>div:first-child]:order-last md:[&>div:first-child]:order-none">
+
         <div
           ref={ref}
           className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink/5 md:sticky md:top-24 md:aspect-[5/6]"
@@ -65,10 +66,16 @@ export default function Destinos() {
 
         <div>
           <Reveal>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl md:!leading-[56px]">
+                      <div className="flex flex-col gap-2">
+            <span className="text-sm font-medium uppercase tracking-[2.3px] text-muted-foreground/80 text-ink/70 mb-1">
+              {t.destTitleSub}
+            </span>
+       
+            <h2 className="text-4xl md:text-5xl md:!leading-[56px]">
               {t.destTitle}
             </h2>
-            <p className="mt-4 text-base text-ink/60 sm:text-lg">{t.destSub}</p>
+
+          </div>
           </Reveal>
           <div className="mt-8 md:mt-12">
             {t.d.map((item, i) => {

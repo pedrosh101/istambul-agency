@@ -16,10 +16,10 @@ export default function Tour() {
   <div className="grid gap-6 md:grid-cols-2 md:gap-20">
         <Reveal>
           <div className="flex flex-col gap-2">
-            <span className="text-sm font-medium uppercase tracking-[2.3px] text-muted-foreground/80 text-ink/70">
+            <span className="text-sm font-medium uppercase tracking-[2.3px] text-muted-foreground/80 text-ink/70 mb-1">
               {t.tourTitleSub}
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl">{t.tourTitle}</h2>
+            <h2 className="text-4xl md:text-5xl">{t.tourTitle}</h2>
           </div>
         </Reveal>
         <Reveal delay={0.1}><p className="text-base leading-relaxed sm:text-lg">{t.tourText}</p></Reveal>
@@ -27,7 +27,7 @@ export default function Tour() {
 
       <div ref={ref} className="relative mt-10 h-[40vh] overflow-hidden rounded-2xl md:mt-14 md:h-[60vh]">
         <motion.div style={{ y }} className="absolute inset-x-0 -top-[10%] h-[120%]">
-          <Image src="/images/mesquita-azul.webp" alt="" fill className="object-cover" sizes="88vw" />
+          <Image src="/images/imagem1.jpeg" alt="" fill className="object-cover" sizes="88vw" />
         </motion.div>
       </div>
 

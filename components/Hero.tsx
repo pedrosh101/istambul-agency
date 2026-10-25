@@ -18,7 +18,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: D, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl text-[2.5rem] leading-[1.05] text-white sm:text-6xl md:text-7xl"
+            className="max-w-3xl text-[3rem] leading-[1.05] text-white sm:text-6xl md:text-7xl"
           >
             {t.heroTitle}
           </motion.h1>
@@ -36,10 +36,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: D + 0.45 }}
             className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row"
           >
-            <a href="#contato" className="rounded-full bg-turk px-7 py-3.5 text-center font-medium text-white transition hover:brightness-110">
+            <a href="#contato" className="rounded-full bg-turk px-7 py-3 text-center font-medium text-white transition hover:brightness-110">
               {t.btn1}
             </a>
-            <a href="#destinos" className="rounded-full border border-white/70 px-7 py-3.5 text-center font-medium text-white transition hover:bg-white hover:text-ink">
+            <a href="#destinos" className="rounded-full border border-white/70 px-7 py-3 text-center font-medium text-white transition hover:bg-white hover:text-ink">
               {t.btn2}
             </a>
           </motion.div>
