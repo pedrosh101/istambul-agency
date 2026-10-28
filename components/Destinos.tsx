@@ -12,9 +12,9 @@ import { useLang } from "@/lib/i18n";
 import Reveal from "./Reveal";
 
 const IMGS = [
-  "/images/mesquita-azul.webp",
+  "/images/mesquita-azul.jpg",
   "/images/santa-sofia.webp",
-  "/images/grand-bazaar.webp",
+  "/images/grand-bazaar.jpg",
 ];
 
 export default function Destinos() {

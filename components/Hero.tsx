@@ -11,8 +11,8 @@ export default function Hero() {
   return (
     <section className="p-3 sm:p-4">
       <div className="relative flex min-h-[calc(100svh-1.5rem)] items-end overflow-hidden rounded-[1.5rem] sm:min-h-[calc(100svh-2rem)] sm:rounded-[2rem]">
-        <Image src="/images/fundo.png" alt="" fill priority className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/30" />
+        <Image src="/images/e.jpg" alt="" fill priority className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/60" />
         <div className="relative z-10 w-full px-5 pb-10 sm:px-12 sm:pb-16 md:px-[10%] md:pb-24">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

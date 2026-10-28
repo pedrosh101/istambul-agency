@@ -33,7 +33,7 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="mx-auto grid w-[88vw] gap-10 pt-16 pb-6 md:w-[80vw] md:grid-cols-2 md:gap-20 md:pt-24 md:pb-14"
+      className="mx-auto grid w-[88vw] gap-10 pt-16 pb-6 md:w-[80vw] md:grid-cols-2 md:gap-20 md:pt-24 md:pb-14 items-center"
     >
       <motion.div
         initial="hidden"

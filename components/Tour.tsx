@@ -27,7 +27,7 @@ export default function Tour() {
 
       <div ref={ref} className="relative mt-10 h-[40vh] overflow-hidden rounded-2xl md:mt-14 md:h-[60vh]">
         <motion.div style={{ y }} className="absolute inset-x-0 -top-[10%] h-[120%]">
-          <Image src="/images/imagem1.jpeg" alt="" fill className="object-cover" sizes="88vw" />
+          <Image src="/images/b.jpg" alt="" fill className="object-cover" sizes="88vw" />
         </motion.div>
       </div>
 
