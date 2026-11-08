@@ -13,7 +13,7 @@ const dict = {
   pt: {
     nav: ["Sobre", "Destinos", "Roteiros", "Contato"],
     cta: "Planejar viagem",
-    heroTitle: "Venha desbravar a Rainha das Cidades",
+    heroTitle: "Venha descobrir a Rainha das Cidades",
     heroSub:
       "Acompanhamento privado e exclusivo por Istambul: do Bósforo aos bazares, com guia credenciada em português para você vivenciar cada lugar de Istambul no seu ritmo.",
     btn1: "Montar minha viagem",
